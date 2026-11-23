@@ -1,0 +1,74 @@
+{
+  "vendor": "logixalpartnerus",
+  "name": "recently-viewed-products",
+  "version": "0.1.0",
+  "title": "Recently Viewed Products",
+  "description": "Keeps a shopper's recently viewed products across sessions, with optional sync across devices",
+  "builders": {
+    "react": "3.x",
+    "docs": "0.x",
+    "store": "0.x",
+    "node": "7.x",
+    "graphql": "2.x",
+    "masterdata": "1.x",
+    "messages": "1.x"
+  },
+  "dependencies": {
+    "vtex.css-handles": "0.x",
+    "vtex.product-context": "0.x",
+    "vtex.product-price": "1.x",
+    "vtex.product-summary": "2.x",
+    "vtex.render-runtime": "8.x",
+    "vtex.search-graphql": "0.x",
+    "vtex.session-client": "1.x",
+    "vtex.slider-layout": "0.x"
+  },
+  "settingsSchema": {
+    "title": "Recently Viewed Products",
+    "type": "object",
+    "properties": {
+      "enableSync": {
+        "title": "Sync history across devices",
+        "description": "Stores the history of logged-in shoppers in Master Data. Review this with your privacy team before turning it on.",
+        "type": "boolean",
+        "default": false
+      },
+      "maxItems": {
+        "title": "Products kept per shopper",
+        "description": "From 1 to 50",
+        "type": "number",
+        "default": 30
+      },
+      "retentionDays": {
+        "title": "Days to keep each view",
+        "description": "From 1 to 365",
+        "type": "number",
+        "default": 90
+      }
+    }
+  },
+  "credentialType": "absolute",
+  "policies": [
+    {
+      "name": "ADMIN_DS"
+    },
+    {
+      "name": "colossus-write-logs"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "api.vtex.com",
+        "path": "/api/dataentities/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/vtexid/credential/validate"
+      }
+    }
+  ],
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}

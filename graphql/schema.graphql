@@ -1,0 +1,58 @@
+type RecentlyViewedItem {
+  productId: ID!
+  viewedAt: String!
+}
+
+type RecentlyViewedHistory {
+  items: [RecentlyViewedItem!]!
+}
+
+type RecentlyViewedSettings {
+  enableSync: Boolean!
+  maxItems: Int!
+  retentionDays: Int!
+}
+
+input RecentlyViewedItemInput {
+  productId: ID!
+  viewedAt: String!
+}
+
+type Query {
+  """
+  The logged-in shopper's synced history. The shopper is resolved from the
+  store token on the server, so this operation takes no user argument.
+  """
+  recentlyViewed: RecentlyViewedHistory!
+    @auth(scope: PUBLIC)
+    @cacheControl(scope: PRIVATE, maxAge: ZERO)
+
+  recentlyViewedSettings: RecentlyViewedSettings!
+    @auth(scope: PUBLIC)
+    @cacheControl(scope: PUBLIC, maxAge: SHORT)
+}
+
+type Mutation {
+  """
+  Merges views into the logged-in shopper's history and returns the result.
+  """
+  recordRecentlyViewed(
+    items: [RecentlyViewedItemInput!]!
+  ): RecentlyViewedHistory! @auth(scope: PUBLIC)
+
+  """
+  Deletes the logged-in shopper's history. Works even when sync is turned off.
+  """
+  clearRecentlyViewed: Boolean! @auth(scope: PUBLIC)
+
+  """
+  Deletes up to 100 documents with no activity inside the retention period and
+  returns how many were deleted. Admin only.
+  """
+  purgeInactiveRecentlyViewed: Int!
+    @auth(
+      scope: PRIVATE
+      productCode: "66"
+      resourceCode: "workspace-read-write"
+    )
+}

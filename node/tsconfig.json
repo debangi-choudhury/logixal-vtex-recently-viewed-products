@@ -1,0 +1,28 @@
+{
+  "extends": "@vtex/tsconfig",
+  "compilerOptions": {
+    "noEmitOnError": false,
+    "lib": [
+      "es2019"
+    ],
+    "module": "commonjs",
+    "sourceMap": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "types": [
+      "node",
+      "jest"
+    ],
+    "skipLibCheck": true
+  },
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "typeAcquisition": {
+    "enable": false
+  }
+}

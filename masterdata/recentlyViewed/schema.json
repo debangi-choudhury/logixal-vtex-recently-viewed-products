@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "title": "recentlyViewed",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "properties": {
+          "productId": { "type": "string" },
+          "viewedAt": { "type": "string", "format": "date-time" }
+        },
+        "required": ["productId", "viewedAt"]
+      }
+    },
+    "lastActivityAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["items", "lastActivityAt"],
+  "v-indexed": ["lastActivityAt"],
+  "v-default-fields": ["items", "lastActivityAt"],
+  "v-cache": false
+}

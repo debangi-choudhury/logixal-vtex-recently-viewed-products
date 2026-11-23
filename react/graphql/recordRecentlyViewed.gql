@@ -1,0 +1,8 @@
+mutation RecordRecentlyViewed($items: [RecentlyViewedItemInput!]!) {
+  recordRecentlyViewed(items: $items) {
+    items {
+      productId
+      viewedAt
+    }
+  }
+}

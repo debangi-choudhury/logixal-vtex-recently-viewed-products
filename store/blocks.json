@@ -1,0 +1,34 @@
+{
+  "recently-viewed-shelf": {
+    "blocks": ["list-context.product-list-static#recently-viewed"]
+  },
+  "list-context.product-list-static#recently-viewed": {
+    "blocks": ["product-summary.shelf#recently-viewed"],
+    "children": ["slider-layout#recently-viewed"]
+  },
+  "slider-layout#recently-viewed": {
+    "props": {
+      "itemsPerPage": {
+        "desktop": 5,
+        "tablet": 3,
+        "phone": 1
+      },
+      "infinite": false,
+      "blockClass": "recently-viewed"
+    }
+  },
+  "product-summary.shelf#recently-viewed": {
+    "children": [
+      "product-summary-image#recently-viewed",
+      "product-summary-name",
+      "product-selling-price"
+    ]
+  },
+  "product-summary-image#recently-viewed": {
+    "props": {
+      "showBadge": false,
+      "aspectRatio": "1:1",
+      "maxHeight": 300
+    }
+  }
+}

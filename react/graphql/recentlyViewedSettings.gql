@@ -1,0 +1,7 @@
+query RecentlyViewedSettings {
+  recentlyViewedSettings {
+    enableSync
+    maxItems
+    retentionDays
+  }
+}
