@@ -1,0 +1,100 @@
+query RecentlyViewedProducts($values: [ID!]) {
+  productsByIdentifier(field: id, values: $values)
+    @context(provider: "vtex.search-graphql") {
+    cacheId
+    productId
+    productName
+    productReference
+    description
+    link
+    linkText
+    brand
+    brandId
+    categories
+    priceRange {
+      sellingPrice {
+        highPrice
+        lowPrice
+      }
+      listPrice {
+        highPrice
+        lowPrice
+      }
+    }
+    specificationGroups {
+      name
+      originalName
+      specifications {
+        name
+        originalName
+        values
+      }
+    }
+    skuSpecifications {
+      field {
+        name
+        originalName
+      }
+      values {
+        name
+        originalName
+      }
+    }
+    items(filter: ALL_AVAILABLE) {
+      name
+      itemId
+      measurementUnit
+      unitMultiplier
+      referenceId {
+        Value
+      }
+      images {
+        imageUrl
+        imageTag
+        imageLabel
+      }
+      variations {
+        name
+        values
+      }
+      sellers {
+        sellerId
+        sellerName
+        commertialOffer {
+          Installments(criteria: MAX) {
+            Value
+            InterestRate
+            TotalValuePlusInterestRate
+            NumberOfInstallments
+            Name
+          }
+          AvailableQuantity
+          Price
+          PriceWithoutDiscount
+          ListPrice
+          spotPrice
+          Tax
+          taxPercentage
+          teasers {
+            name
+          }
+          discountHighlights {
+            name
+          }
+        }
+      }
+    }
+    clusterHighlights {
+      id
+      name
+    }
+    productClusters {
+      id
+      name
+    }
+    properties {
+      name
+      values
+    }
+  }
+}

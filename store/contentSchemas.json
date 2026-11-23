@@ -1,0 +1,13 @@
+{
+  "definitions": {
+    "RecentlyViewedShelf": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "admin/editor.recently-viewed.shelf-title"
+        }
+      }
+    }
+  }
+}

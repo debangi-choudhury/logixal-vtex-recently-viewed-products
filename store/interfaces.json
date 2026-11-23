@@ -1,0 +1,12 @@
+{
+  "recently-viewed-tracker": {
+    "component": "RecentlyViewedTracker"
+  },
+  "recently-viewed-shelf": {
+    "component": "RecentlyViewedShelf",
+    "required": ["list-context.product-list-static"],
+    "content": {
+      "$ref": "#/definitions/RecentlyViewedShelf"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+query RecentlyViewed {
+  recentlyViewed {
+    items {
+      productId
+      viewedAt
+    }
+  }
+}

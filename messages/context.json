@@ -1,0 +1,5 @@
+{
+  "store/recently-viewed.title": "Default title of the recently viewed products shelf",
+  "admin/editor.recently-viewed.title": "Name of the shelf block in the Site Editor",
+  "admin/editor.recently-viewed.shelf-title": "Label of the title field in the Site Editor"
+}
