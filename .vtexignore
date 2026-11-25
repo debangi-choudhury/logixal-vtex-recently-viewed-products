@@ -20,3 +20,8 @@ react/testUtils/**
 
 # screenshots for the README
 docs/images/
+
+# documentation for developers; docs/README.md stays, it is the App Store text
+docs/TESTING.md
+docs/USER-GUIDE.md
+docs/TECHNICAL.md

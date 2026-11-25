@@ -12,6 +12,8 @@ A **Recently viewed** shelf for VTEX stores. It remembers the products each shop
 | Type | Two store blocks (a tracker and a shelf) and a Node service for sync |
 | Status | Internal Logixal demo app for prospective clients |
 
+Full documentation: [user guide](docs/USER-GUIDE.md) and [technical reference](docs/TECHNICAL.md).
+
 ## Contents
 
 1. [Why it exists](#why-it-exists)
@@ -96,6 +98,8 @@ yarn lint && yarn test:coverage
 vtex use debangi && vtex link
 ```
 
+- User guide, every screen and setting: [docs/USER-GUIDE.md](docs/USER-GUIDE.md)
+- Technical reference, API, data and security: [docs/TECHNICAL.md](docs/TECHNICAL.md)
 - Testing record and manual test steps: [docs/TESTING.md](docs/TESTING.md)
 - Version history: [CHANGELOG.md](CHANGELOG.md)
 - App store description: [docs/README.md](docs/README.md)
