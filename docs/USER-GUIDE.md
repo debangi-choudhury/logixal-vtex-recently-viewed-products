@@ -62,7 +62,7 @@ The history keeps product IDs and view times only.
 - Keep more products than the shelf shows, so it stays full after unavailable products are left out.
 - Values outside the allowed range fall back to the default (or the maximum, for values that are too large).
 - Settings are read per request and cached in memory briefly, so a change can take a short while to show.
-- Sync stays **off in production** for this store until a privacy review approves it. At the time of writing, the `debangi` settings page also showed it off.
+- Sync stays **off in production** for this store until a privacy review approves it. In the `debangi` workspace it is **on**, for demos and testing.
 
 ## Placing the blocks
 
