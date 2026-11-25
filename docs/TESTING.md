@@ -20,8 +20,9 @@ Reviewed against the VTEX IO track of https://github.com/vtex/skills. No changes
 ## Automated checks
 
 ```bash
-yarn lint                        # 0 errors, 9 warnings
-yarn test                        # 28 backend tests, then 24 React tests
+yarn lint                        # 0 errors, 12 warnings
+yarn test                        # 72 tests: server, shelf, tracker, hooks and sync
+yarn test:coverage               # 99% of lines, 88% of branches; fails under 80% (70% for branches)
 cd react && npx tsc --noEmit     # no errors
 cd node && npx tsc --noEmit      # no errors
 ```
