@@ -1,7 +1,7 @@
 {
   "vendor": "logixalpartnerus",
   "name": "recently-viewed-products",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "Recently Viewed Products",
   "description": "Keeps a shopper's recently viewed products across sessions, with optional sync across devices",
   "builders": {
