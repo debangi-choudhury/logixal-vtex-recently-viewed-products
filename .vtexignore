@@ -17,3 +17,6 @@
 **/__mocks__
 **/*.test.*
 react/testUtils/**
+
+# screenshots for the README
+docs/images/
