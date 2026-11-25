@@ -5,7 +5,8 @@
   "version": "0.0.0",
   "scripts": {
     "lint": "eslint --ext .ts,.tsx react node",
-    "test": "yarn --cwd node test && jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "devDependencies": {
     "@vtex/prettier-config": "^1.0.0",
@@ -17,23 +18,5 @@
     "prettier": "^2.8.8",
     "ts-jest": "^29.1.5",
     "typescript": "4.9.5"
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "testMatch": [
-      "<rootDir>/react/__tests__/**/*.test.ts"
-    ],
-    "transform": {
-      "^.+\\.ts$": [
-        "ts-jest",
-        {
-          "diagnostics": false,
-          "tsconfig": {
-            "module": "commonjs",
-            "esModuleInterop": true
-          }
-        }
-      ]
-    }
   }
 }

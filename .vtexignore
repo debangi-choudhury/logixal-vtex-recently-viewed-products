@@ -5,6 +5,7 @@
 /yarn.lock
 /README.md
 /crowdin.yml
+/jest.config.js
 
 # tools
 **/.eslintrc
