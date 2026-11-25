@@ -253,3 +253,40 @@ describe('syncHistory', () => {
     expect(options.transport.push).toHaveBeenCalledTimes(1)
   })
 })
+
+describe('a view recorded as a sync starts', () => {
+  it('is sent with the next sync, even in the same millisecond', async () => {
+    const startedAt = Date.now() - 1000
+
+    // The last sync started in the same millisecond as this view
+    writeHistory(ACCOUNT, {
+      owner: 'shopper-1',
+      items: [{ productId: '7', viewedAt: new Date(startedAt).toISOString() }],
+      syncedAt: startedAt,
+    })
+
+    const options = buildOptions()
+
+    await syncHistory(options)
+
+    expect(options.transport.push).toHaveBeenCalledTimes(1)
+    expect(ids(options.transport.push.mock.calls[0][0])).toEqual(['7'])
+    expect(options.transport.pull).not.toHaveBeenCalled()
+  })
+
+  it('is not sent again once a later sync has covered it', async () => {
+    const viewedAt = Date.now() - 2000
+
+    writeHistory(ACCOUNT, {
+      owner: 'shopper-1',
+      items: [{ productId: '7', viewedAt: new Date(viewedAt).toISOString() }],
+      syncedAt: viewedAt + 1,
+    })
+
+    const options = buildOptions()
+
+    await syncHistory(options)
+
+    expect(options.transport.push).not.toHaveBeenCalled()
+  })
+})

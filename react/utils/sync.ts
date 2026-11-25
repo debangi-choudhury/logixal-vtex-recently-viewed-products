@@ -32,8 +32,11 @@ async function runSync({ account, limits, transport }: SyncOptions) {
     return
   }
 
+  // Views from the same millisecond as the last sync's start count as pending:
+  // a view recorded while that sync was starting wasn't in what it sent.
+  // Sending one again is harmless, because merging keeps one view per product.
   const pending = items.filter(
-    ({ viewedAt }) => syncedAt === null || Date.parse(viewedAt) > syncedAt
+    ({ viewedAt }) => syncedAt === null || Date.parse(viewedAt) >= syncedAt
   )
 
   if (
